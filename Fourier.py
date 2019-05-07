@@ -28,3 +28,15 @@ def fourier(datos):
 fts=fourier(signal[:,1])
 fts=np.asarray(fts) 
 
+ffts=np.fft.fftfreq(len(fts),0.00015)
+
+####Cuarto punto: Se hace la grafica de la transformada de Fourier y se guarda en un pdf
+plt.plot(abs(ffts),abs(fts),label='Signal',color='g')
+plt.xlabel('Frecuencia')
+plt.ylabel('Amplitud')
+plt.title('Fourier de signal')
+plt.legend()
+plt.xlim([0,1000])
+plt.savefig('ArizaFelipe_TF.pdf')
+plt.close()
+
