@@ -1,0 +1,98 @@
+
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+% Formato para los talleres del curso de M\'etodos Computacionales
+% Universidad de los Andes
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+
+\documentclass[11pt]{report}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{float}
+
+
+\begin{document}
+\begin{center}
+{\Large M\'etodos Computacionales} \\
+{Tarea 2}
+\end{center}
+
+
+\newpage
+\section{Ecuaciones diferenciales ordinarias: un edificio en un sismo}
+%\subsection{$u_i(t)_{max} (w)$ contra  $w$}
+
+\subsection{Test de que funciona}
+Para probar la solución con Leap-Frig, se resuelve el sistema con $m = 1000.0$, k = $2000.0$, $\gamma = 0$ y $w = 1.0 \sqrt{k/m}$. Las \'ultimas 3 son resonancias.
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics{w0.png}
+\end{center}
+\label{fig:uno}
+\end{figure}
+
+Se observan las oscilaciones de cada piso. Como no hay resonancia, el movimiento en teor\'ia va a ser eterno.
+\newpage
+
+\subsection{Amplitud m\'axima en función de la frecuencia angular ($w$)de forzamiento}
+\begin{figure}[h]
+\begin{center}
+\includegraphics{w.png}
+\end{center}
+\label{fig:uno}
+\end{figure}
+
+EN la imagen se grafica la amplitud m\'axima vs la frecuancia del forzamiento. Se observan tres picos, cada uno dominado por uno de los pisos del edificio.Se eligi\'o graficar las frecuencias de la resonancia y una frecuencia normal para comparar.
+
+
+\subsection{Amplitudes en funci\'on del tiempo}
+A contiunaci\'on se presentan las gr\'aficas de $u_i(t)$ vs $t$ para los siguientes cuatro valores de w: 0.20$\sqrt{k/m}$, 0.452$\sqrt{k/m}$, 1.236$\sqrt{k/m}$, 1.769$\sqrt{k/m}$.
+\newpage
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics{w1.png}
+\end{center}
+\label{fig:uno}
+\end{figure}
+
+En este escenario no hay resonancia. Como se tiene $\gamma = 0$, el movimiento del sistema es periodico y no crece infinitamente.
+\newpage
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics{w2.png}
+\end{center}
+\label{fig:uno}
+\end{figure}
+
+En este escenario hay resonancia. AL no haber disipamiento de energ\'ia, la amplitud de las oscilaciones crece infinitamente (o hasta romper el edificio).El piso de mayor desplazamiento es el tercero.
+
+
+\newpage
+\begin{figure}[h]
+\begin{center}
+\includegraphics{w3.png}
+\end{center}
+\label{fig:uno}
+\end{figure}
+
+En este escenario hay resonancia. AL no haber disipamiento de energ\'ia, la amplitud de las oscilaciones crece infinitamente (o hasta romper el edificio). Se observa un menor periodo en comparaci\'on con la gr\'afica anterior. Esto se debe al aumento en $w$. El piso que m\'as se mueve es el primero.
+
+\newpage
+\begin{figure}[h]
+\begin{center}
+\includegraphics{w4.png}
+\end{center}
+\label{fig:uno}
+\end{figure}
+
+En este escenario hay resonancia. AL no haber disipamiento de energ\'ia, la amplitud de las oscilaciones crece infinitamente (o hasta romper el edificio). Se observa un menor periodo en comparaci\'on con la gr\'afica anterior. Esto se debe al aumento en $w$. El piso que ms se mueve es el segundo.
+
+\end{document}
