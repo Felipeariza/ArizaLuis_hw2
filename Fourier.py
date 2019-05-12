@@ -70,3 +70,28 @@ plt.title('Espectrograma Signal')
 plt.ylabel('Frecuencia en [Hz/s]')
 plt.xlabel('Tiempo en [s]'])
 plt.savefig('Espectro_signal.pdf')
+#Parte b
+#Se cargan los datos de temblor.txt
+#Se saltan las primeras 4 lineas que no tienen datos
+sismo=np.genfromtxt('temblor.txt',skip_header=4)
+#Se grafican los datos del temblor
+plt.figure()
+plt.plot(t,sismo)
+plt.title('Temblor')
+plt.ylabel('Amplitud')
+plt.xlabel('Tiempo')
+plt.savefig('temblor.pdf')
+#Se grafica la frecuencia en terminos de la apmplitud
+plt.figure()
+plt.plot(np.fft.fftfreq(len(sismo),signal[1]-signal[0]),np.abs(fft(sismo)))
+plt.title('Transformada de transformada del temblor')
+plt.xlabel('frecuencia')
+plt.ylabel('Amplitud')
+plt.savefig('Temblor_transformada.pdf')
+#Se hace el espectrograma de los datos del temblor
+plt.figure()
+plt.specgram(sismo,Fs=2,NFFT=256)
+plt.title('Espectrograma')
+plt.xlabel('Tiempo en [s]')
+plt.ylabel('Frecuencia en [Hz/s]')
+plt.savefig('Especto_temblor.pdf')
