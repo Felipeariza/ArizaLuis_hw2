@@ -38,3 +38,35 @@ def transformada(datos):
             trans_f+=datos[l]*np.exp(-(2j*np.pi*i*l)/len(datos))
         fourier.append(trans_f)
     return np.array(fourier)
+#Se aplica la transformada a cada una de las señales y se usa la funcion fftfreq del paquete fft para obtener la frecuencia de la senhal
+#SignalSuma
+transformada_real_suma=np.sqrt(np.real(transformada(S_signal_t))**2+np.imag(transformada(S_signal_t))**2)
+frecuencia_suma=np.fft.fftfreq(len(S_signal_t),S_signal[1]-S_signal[0])
+#Signal
+transformada(signal_t)=transformada(signal_t)
+frecuencia_signal=np.fft.fftfreq(len(signal_t),signal[1]-signal[0])
+transformada_real_signal=np.sqrt(np.real(transformada(signal_t))**2+np.imag(transformada(signal_t))**2)
+#Se grafican nuevamente las señales transfomadas en funcion de la frecuencia
+plt.figure()
+plt.plot(frecuencia_suma,transformada_real_suma,c='blue')
+plt.plot(frecuencia_signal,transformada_real_signal,c='black')
+plt.ylabel('Amplitud')
+plt.xlabel('Frecuencia')
+plt.xlim(-500,500)
+plt.title('Transformada')
+plt.savefig('Datos_transformados.pdf')
+plt.close()
+#Se realizan los espectogramas con los parametros similares a los vistos en la referencia dada
+#Se establece Fs de 2 para tomar dos muestras de frecuencia por unidad
+plt.figure()
+plt.specgram(S_signal_t,Fs=2,NFFT=256)
+plt.xlabel('Tiempo en [s]'')
+plt.ylabel('Frecuencia en [Hz/s]')
+plt.title('Espectrograma Suma')
+plt.savefig('Espectro_suma.pdf')
+plt.figure()
+plt.specgram(signal_t,Fs=2,NFFT=256,noverlap=128)
+plt.title('Espectrograma Signal')
+plt.ylabel('Frecuencia en [Hz/s]')
+plt.xlabel('Tiempo en [s]'])
+plt.savefig('Espectro_signal.pdf')
